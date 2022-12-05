@@ -1,4 +1,4 @@
-from django import  forms
+from django import forms
 from django.contrib.auth.models import User
 
 
@@ -7,7 +7,7 @@ class UserRegistrationForm(forms.ModelForm):
     email = forms.CharField()
     first_name = forms.CharField()
     last_name = forms.CharField()
-    password1 = forms.CharField()
+    password = forms.CharField()
     password2 = forms.CharField()
 
     class Meta:
