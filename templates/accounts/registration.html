@@ -2,7 +2,7 @@
 {% block content %}
 <main class="form-signin text-center container">
 
-  {% if form.errors %}
+  {% if user_form.errors %}
 
   <div class="alert-danger">
   <strong>Error!</strong>{{form.errors}}
@@ -25,12 +25,12 @@
     </div>
 
       <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput3" name="first_name" placeholder="Your name">
+      <input type="text" class="form-control" id="floatingInput3" name="first_name" placeholder="Your name">
       <label for="floatingInput3">Your name</label>
     </div>
 
             <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput4" name="last_name" placeholder="Your surname">
+      <input type="text" class="form-control" id="floatingInput4" name="last_name" placeholder="Your surname">
       <label for="floatingInput4">Your surname</label>
     </div>
 
