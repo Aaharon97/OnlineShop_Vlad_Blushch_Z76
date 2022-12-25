@@ -1,10 +1,19 @@
 from django.db import models
+from catalog.models import Book
+from django.contrib.auth.models import User
 
 
 class Cart(models.Model):
-    price = models.FloatField()
-    amount = models.IntegerField(default=0)
-    product = models.ForeignKey('catalog.Book', on_delete=models.SET_NULL, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    products = models.ManyToManyField(Book, blank=True)
 
-    def __str__(self):
-        return self.product
+
+    def get_total_price(self):
+        return sum([book.price for book in self.products.all()])
+
+    def get_total_quantity(self):
+        return len([book for book in self.products.all()])
+
+    def display_products(self):
+        return', '.join([book.title for book in self.products.all()])
+
